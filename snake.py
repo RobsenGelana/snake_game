@@ -1,6 +1,7 @@
 from turtle import Turtle
-#Defining a Global variable
+#Defining a CONSTANT variable
 STARTING_POSITION = [(0,0), (-20, 0), (-40, 0)]
+MOVEMENT = 20
 class Snake:
     def __init__(self) -> None:
         self.snakes = []
@@ -19,4 +20,4 @@ class Snake:
             new_x = self.snakes[snake_num - 1].xcor()
             new_y = self.snakes[snake_num - 1].ycor()
             self.snakes[snake_num].goto(new_x, new_y)
-        self.snakes[0].forward(20)  
+        self.snakes[0].forward(MOVEMENT)  
