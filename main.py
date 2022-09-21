@@ -1,4 +1,4 @@
-from turtle import Turtle, Screen
+from turtle import Turtle, Screen, xcor
 import time
 
 screen = Screen()
@@ -23,9 +23,11 @@ game_on = True
 while game_on:
     screen.update()
     time.sleep(0.1)
-    for snake in snakes:
-        snake.forward(20)
-        
+    for snake_num in range(len(snakes) -1, 0, -1):
+        new_x = snakes[snake_num - 1].xcor()
+        new_y = snakes[snake_num - 1].ycor()
+        snakes[snake_num].goto(new_x, new_y)
+    snakes[0].forward(20)
 
 
 
