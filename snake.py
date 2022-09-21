@@ -1,8 +1,11 @@
 from turtle import Turtle
-import turtle
 #Defining a CONSTANT variable
 STARTING_POSITION = [(0,0), (-20, 0), (-40, 0)]
 MOVEMENT = 20
+UP = 90
+DOWN = 270
+RIGHT = 0
+LEFT = 180
 class Snake:
     def __init__(self) -> None:
         self.snakes = []
@@ -25,10 +28,14 @@ class Snake:
         self.head.forward(MOVEMENT)  
     
     def up(self):
-        self.head.setheading(90)
+        if self.head.heading() != DOWN:
+          self.head.setheading(UP)
     def down(self):
-        self.head.setheading(270)
+        if self.head.heading() != UP:
+            self.head.setheading(DOWN)
     def right(self):
-        self.head.setheading(0)
+        if self.head.heading() != LEFT:
+            self.head.setheading(RIGHT)
     def left(self):
-        self.head.setheading(180)
+        if self.head.heading() != RIGHT:
+          self.head.setheading(LEFT)
