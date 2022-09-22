@@ -40,7 +40,7 @@ while game_on:
     for x in snake.snakes:
         if x == snake.head:
             pass
-        if snake.head.distance(x) < 10:
+        elif snake.head.distance(x) < 10:
             game_on = False
             score_board.game_over()
 
