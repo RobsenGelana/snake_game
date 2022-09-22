@@ -36,6 +36,12 @@ while game_on:
     if snake.head.xcor() > 290 or snake.head.xcor() < -290 or snake.head.ycor() > 290 or snake.head.ycor() < -290:
         game_on = False
         score_board.game_over() 
+    #Detecting collision with tail
+    for x in snake.snakes:
+        if snake.head.distance(x) < 10:
+            game_on = False
+            score_board.game_over()
+
 
 
 
