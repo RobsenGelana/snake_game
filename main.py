@@ -1,6 +1,7 @@
-from turtle import Turtle, Screen
+from turtle import Screen
 from snake import Snake
 import time
+from food import Food
 
 screen = Screen()
 #creating a screen size for the game
@@ -11,6 +12,7 @@ screen.tracer(0)
 
 
 snake = Snake()
+food = Food()
 screen.listen()
 screen.onkey(snake.up, 'Up')
 screen.onkey(snake.down, 'Down')
@@ -24,6 +26,9 @@ while game_on:
     time.sleep(0.1)
     snake.move()
 
+    #Detecting collision food
+    if snake.head.distance(food) < 15:
+        food.refresh()
 
 
 
